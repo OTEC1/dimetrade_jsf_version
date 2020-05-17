@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+	  
+	  <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('cache-Control','no-cache, no-store')}"/>
+     
+
+<h:head>
+
+
+<script>
+
+
+
+
+
+
+</script>
+
+
+      <style>
+      
+      
+       
+.force-overflowz{
+        min-height: 500px;
+ }
+ 
+  .scrollbarz{
+
+     height: 300px;
+     margin-bottom: 25px;
+     margin-top: -360px;
+     width: 400px;
+     overflow-y: scroll;
+
+    }
+ 
+ #style-1z::-webkit-scrollbar{
+     width: 9px;
+   
+ }
+ 
+  #style-1z::-webkit-scrollbar-thumb{
+     background-color:   #2DFF06;
+     border-radius: 10px;
+ }
+      </style>
+
+</h:head>
+<h:body style="background-image:url('Image/new_wallet.png'); background-size:cover; background-repeat:no-repeat">
+
+<div  class="pops_res"  style="position: relative;  float:right;  width: 0px; height: 0px; border-radius: 10px; background-color: yellow; margin-top: 0px; ">
+
+</div>
+
+
+
+<!-- Post upload -->
+<h:form enctype="multipart/form-data">
+
+<p:fileUpload mode="simple"    value="#{user_file_upload.file}"  style="margin-top:362px; margin-left:105px;"></p:fileUpload>
+
+<h:inputText  style="margin-left:-55px; width:90px; border-radius:5px;" value="#{user_file_upload.price}">
+<f:passThroughAttribute name="Placeholder" value="Price" ></f:passThroughAttribute>
+</h:inputText>
+
+
+
+
+<!-- Error display -->
+
+<h:outputLabel   value="#{user_file_upload.error}" style="position: absolute; color:red;  width: 110px; height: 15px; margin-left: -60px; margin-top: 335px "/>
+
+
+
+
+<!-- Post Upload -->
+<h:commandButton    image="Image/ssss.png"    action="#{user_file_upload.send_in}"    title="Upload  Post"  
+   style="position: absolute;  width: 30px; height: 30px; margin-left: 55px; margin-top: 360px "/>
+
+
+
+<!-- Order Placed -->
+<h:commandButton         action="#{user_file_upload.view_order}"   title="View  Orders"   image="Image/view_orders.png"
+style="position: absolute;  width: 40px; height: 40px; margin-left: 25px; margin-top: 410px ;"/>
+
+
+
+<!-- Delivery Zone -->
+
+<h:commandButton  image="Image/delivery_button.png"   title="Delivery  Agent"   action="delivery.xhtml"
+  style="position: absolute;  width: 40px; height: 40px; margin-left: -128px; margin-top: 410px "/>
+
+
+
+ <!--  Location Report"-->
+<h:commandButton  image="Image/gas_reward.png"   title="Gas For Cash"  
+    style="position: absolute;  width: 40px; height: 40px; margin-left: -260px; margin-top: 410px "/>
+
+
+
+
+
+<!-- Profile Editor -->
+<label title="Become Moblie Agents">
+<p:rating value="#{user_file_upload.mobile_agents}"   stars="1"  style="float:right; margin-right:125px; margin-top:349px;"></p:rating>
+</label>
+<!-- Update Profile Image -->
+<p:fileUpload mode="simple"     value="#{user_updater.uploadedFile}"  style="float:right; margin-right:34px; margin-top:347px; width:150px;">
+</p:fileUpload>
+
+<!-- Update Profile  -->
+<h:commandButton  image="Image/ssss.png"    title="Update  Profile"   action="#{user_updater.Send_in_update}"
+ style="width: 30px; height: 30px;  float:right; margin-right:-248px; margin-top:390px"/>
+
+
+
+
+<!-- Delete Profile  -->
+<h:commandButton  image="Image/delete-friend.png"   title="Delete Account "
+style="width: 30px; height: 30px;  float:right; margin-right:-275px; margin-top:343px;"/>
+	
+	
+		
+		<h:outputLabel  style="float:right; margin-right:-250px; margin-top:100px;"  value="#{user_updater.sign}"/>
+		
+		
+		<div style="position: relative; float: right; margin-right: -342px; margin-top: 55px; width: 300px;">
+		<ui:repeat    var="next"    value="#{user_updater.userUpdateProfile}" >
+		
+		<p:graphicImage  value="#{user_updater.userUpdateProfile_img}"   cache="false"
+		style="position: relative;  float:right;   width:90px; height:90px; border-radius: 300px;  border-color:#FFF;  margin-right: 225px; top:5px;">
+		</p:graphicImage>
+		
+		
+		<div style="float:right; margin-right: 95px; margin-top: -5px;">
+		<br></br>
+		<h:inputText   value="#{next.nameid}"  style="width:150px; border-radius:10px; background-color:#CFCDCD; border:none; "/>
+		<br></br>
+		<h:inputText   value="#{next.emailid}"  style="width:150px; border-radius:10px; background-color:#CFCDCD; border:none;  margin-top:15px"/>
+		<br></br>
+		<h:inputText   value="#{next.accountid}"  style="width:150px; border-radius:10px; background-color:#CFCDCD; border:none;  margin-top:17px"/>
+		<br></br>
+		<h:inputText   value="#{next.phoneid}"  style="width:150px; border-radius:10px; background-color:#CFCDCD; border:none;  margin-top:16px"/>
+		<br></br>
+		<h:outputText  value="#{next.address}"  style="position:absolute; width:150px; border-radius:10px; background-color:#CFCDCD; border:none;  margin-top:10px;"  />
+		</div>
+		</ui:repeat>
+  </div> 
+
+
+
+</h:form>
+
+
+
+
+  <div class="scrollbarz" id="style-1z" 
+   style="position: relative; float: left; 
+   margin-left: 80px;">
+   <div class="force-overflowz"  >
+                
+
+
+<!-- Post Editor Section -->
+<h:form style="width:350px; height:200px;" rendered="#{user_file_upload.a3}">
+<ui:repeat var="gas"     value="#{user_updater.userUpdatePost}" >
+
+
+
+
+
+<fieldset style="border-radius: 10px; color: silver; ">
+
+
+<p:graphicImage   value="#{user_updater.userUpdatePost_img}"    cache="false"
+style="width:220px; height:200px; border-radius:10px;">
+<f:param name="POP"     value="#{gas.id}"  ></f:param>
+</p:graphicImage>
+
+
+<!-- Edit Post -->
+<h:commandLink title="Edit post">
+<img src="Image/post.png" alt=""   id="pops"  style="position: relative; width: 50px; height: 50px; float: right; margin-right: -10px;" />
+</h:commandLink>
+
+<div style="float: right;  border-radius: 20px; margin-right: 20px;">
+<h:inputHidden   value="#{gas.id}"   style="width:50px; "/>
+<br></br>
+<h:outputLabel   value=" Price: #{gas.store_owner_id}"  style="width:80px;"/>
+<br></br>
+<h:outputLabel   value=" Your email  #{gas.price}"  style="width:50px;"/>
+<br></br>
+</div>
+
+
+</fieldset>
+<br></br>
+
+
+ 
+</ui:repeat>
+
+</h:form>
+
+
+   
+
+
+
+<!-- Semi Order   display-->
+<h:form style="width:350px; height:200px;" rendered="#{user_file_upload.a1}"   title="Unique Customer ID">
+<ui:repeat     value="#{user_file_upload.order_list}"   var="als"  >
+
+<br></br>
+
+<fieldset style="border-radius: 10px; color: silver; ">
+<h:commandLink  action="#{user_file_upload.send_ins}">
+<h:outputLabel  value=" Customer ID: #{als.orders}"/>
+<f:param  name="XXX"  value="#{als.orders}"></f:param>
+</h:commandLink>
+</fieldset>
+<br></br>
+</ui:repeat>
+</h:form> 
+
+
+
+
+
+
+<!--  Order   display-->
+<h:form style="width:350px; height:200px;" rendered="#{user_file_upload.a2}">
+<ui:repeat     value="#{user_file_upload.second_orderlist}"   var="qls"  >
+
+<br></br>
+
+<fieldset style="border-radius: 10px; color: silver; ">
+
+
+<p:graphicImage   value="#{user_file_upload.order_list_img}"     cache="false"
+style="width:200px; height:150px;">
+<f:param name="WEQ"     value="#{qls.id}"  ></f:param>
+</p:graphicImage>
+
+
+<div style="float: right;  border-radius: 20px; margin-right: 20px;">
+<h:inputHidden   value="#{qls.id}"   style="width:50px; "/>
+<br></br>
+<h:outputLabel   value=" Price: #{qls.pricess}"  style="width:80px;"/>
+<br></br>
+<h:outputLabel   value=" Quantity: #{qls.quantity}"  style="width:50px;"/>
+<br></br>
+<h:outputLabel   value="Total: #{qls.total}"  style="width:100px;"/>
+<br></br>
+<h:outputLabel   value="Cus ID: #{qls.person}"  style="width:150px;"/>
+<br></br>
+<h:outputLabel   value="Your addres: #{qls.wall_ownerid}"  style="width:100px;"/>
+<br></br>
+</div>
+
+</fieldset>
+</ui:repeat>
+</h:form> 
+</div>
+</div>
+
+</h:body>
+</html>

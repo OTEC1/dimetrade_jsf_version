@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<head>
+	
+	<style type="text/css">
+	
+		ul,li{
+	float: left; 
+	margin-right: 5px
+	}
+	
+	</style>
+
+	</head>
+
+<h:body>
+<br></br><br></br><br></br><br></br><br></br><br></br>
+<fieldset style="margin-left:40px;  border-color:silver; border-radius:5px;text-align: center; width: 70%;">
+<center><label style="color:#fff">Payment Method</label></center>
+       <br></br>
+       <div style="text-align: center">
+       <div style="display: inline-block;">
+       
+          
+		<h:form>
+		
+					 <h:commandButton value="Visa_Card"  action="#{sub_controller.VCard}"      
+					       style="float:left; background-color:#000; color:#1AFF00; border-radius:5px;"/>
+					    
+					 <h:commandButton value="Master_Card"  action="#{sub_controller.MCard}"    
+					         style="float:left; background-color:#000; color:#1AFF00; border-radius:5px;"/>
+					
+					    <h:commandButton value="PayPal "  action="#{sub_controller.PayPal}"         
+					        style="float:left; background-color:#000; color:#1AFF00; border-radius:5px;"/>
+					 
+					     <h:commandButton value="dime_wallet"  action="#{sub_controller.dime_wallet}"    
+					             style="float:left; background-color:#000; color:#1AFF00; border-radius:5px;"/>
+		
+		 </h:form>
+
+
+     </div>
+       </div> 
+</fieldset>
+</h:body>
+</html>

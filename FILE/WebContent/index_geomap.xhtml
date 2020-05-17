@@ -1,0 +1,261 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+ <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('cache-Control','no-cache, no-store')}"/>
+    <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('cache-Control','no-cache, no-store')}"/>
+
+
+    <h:head>
+        <title>dimeTrade</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+        <meta name="viewport" content="width=device-width, intial-scale=1.0"></meta>
+
+
+        <link rel="stylesheet" type="text/css" href="CSS/Dipcss.css"></link>
+
+
+
+
+
+        <!--  <a href="https://www.flaticon.com/authors/those-icons" title="Those Icons"></a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>-->
+
+        <script type="text/javascript"   src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript">
+
+
+            $(document).ready(function () {
+                $('#settings').click(function () {
+                    $(".pop").width(150).height(40).fadeIn('slow');
+                    $("#white").width(20).height(20);
+                    $("#navy").width(20).height(20);
+                });
+
+            });
+
+
+            $(document).ready(function () {
+                $('#navy').click(function () {
+                    $(".pop").width(0).height(0).fadeOut('slow');
+                    $("#navy").width(0).height(0);
+                    $("#white").width(0).height(0);
+                    $("body").css("background-color", "#070530");
+                    $("#dtb").css("background-color", "#070530");
+                    $("label").css("color", "#0EB4FF"); 
+                    $(".jjcrollbar1").css("background-color", "#070530");
+                    $(".force-overflow1").css("background-color", "#070530");
+                    $(".nav").css("background-color", "#61FFFF");
+                    $("#style-12").css("background-color", "#070530");
+                    $("label").css("color", "#61FFFF"); 
+                    $(".scrolling1").css("background-color", "#61FFFF"); 
+                    
+                    
+                 
+
+
+                });
+
+            });
+
+            $(document).ready(function () {
+                $('#white').click(function () {
+                    $(".pop").width(0).height(0).fadeOut('slow');
+                    $("#navy").width(0).height(0);
+                    $("#white").width(0).height(0);
+                    $("#dtb").css("background-color", "#FFF");
+                    $("body").css("background-color", "#DEE3DC");
+                    $(".nav").css("background-color", "#0EB4FF"); 
+                    $("label").css("color", "#0EB4FF"); 
+                    $(".jjcrollbar1").css("background-color", "#F5F5F5");
+                    $(".force-overflow1").css("background-color", "#F5F5F5");
+                    $(".iframe").css("background-color", "#FFF");
+                    $("#style-12").css("background-color", "#F5F5F5");
+                    $(".scrolling1").css("background-color", "#0EB4FF"); 
+                    
+                   
+                    
+                  
+
+
+                });
+
+            });
+
+
+        </script>
+
+
+<style>
+
+ 
+      .scrolling1::-webkit-scrollbar{
+     width: 9px;
+     opacity: 5s;
+ }
+ 
+.scrolling1::-webkit-scrollbar-thumb{
+     background-color:  #00ffff;
+     border-radius: 10px;
+ }
+ 
+#space{
+
+       height: 550px; 
+      margin-bottom: 25px;
+        margin-top: 0px; 
+        width: 100%;  
+      overflow-y: scroll;
+}
+
+</style>
+
+</h:head>
+			
+			
+			<h:body  style="background-color: #070530;">
+			 
+ 
+
+      
+			<div  style="text-align: center;  height: 550px; ">
+			   <h:form>  
+			<div class="nav"   style="display: inline-block;  background-color: #61FFFF; width: 80%; height: 50px; border-radius: 0px 0px 10px 10px">
+
+
+						
+				
+				  <h:commandLink action="#{sub_controller.load}"   title="Home Page">
+                        <img src="Image/dimeTrade_one.png"
+                                    style=" position:  relative; float: left; margin-left:  40px; top: -5px;"/>
+                                </h:commandLink>
+                                
+                                
+                               
+                    <h:commandLink action="Sign_in"  title="Sign in">
+                     <img src="Image/sign_in.png"  style="position: relative; float: right; 
+                     margin-right: 30px;top: 6px;  height: 30px; width: 30px;"/>
+                           </h:commandLink>
+                   
+                    
+                    
+                         
+                    <a   title="Color Picker">
+                        <img  id="settings"  src="Image/Colour-picker.png" style="position: relative; top:6px;
+                              float: right;  margin-right: 90px;    height: 30px; width: 30px;"/>
+                    </a> 
+                    
+                               <div class="pop"  style="  position: relative;
+					             top: 30px;  left: 10px;  width: 0px;  height: 0px;  background-color: lightsteelblue; 
+					             float: right; margin-right: -280px; border-radius: 5px;">
+					
+					           
+					           <div   id="navy"   style=" position: relative; background-color: #070530;width: 0px; top: 10px;  height: 0px; 
+					            float: right; margin-right: 20px;">
+					               </div>      
+					           
+					           <div   id="white"   style="position: relative;  background-color: whitesmoke ;width: 0px; top: 10px;   height: 0px;
+					             float: left; margin-left: 20px;">
+					               </div>      
+      						 </div>
+                   
+                     <p:growl id="message" showDetail="true"/>
+                    <p:commandLink actionListener="#{geocodinate.confim()}" update="message"   title="Danger Attack">
+                     <img src="Image/attack.png"  style="position: relative; float: right; margin-right: -90px; height: 30px; width: 30px; top:6px;"/>
+                         
+                         <p:confirm  message="Goecodinate sent"  icon="ui-icon-alert" style="background:#000; color:#FFF"/>
+                           </p:commandLink>
+                           
+                           <p:confirmDialog global="true" showEffect="fade" hideEffect="fade" style="background:#070530;">
+                           <p:commandLink value="close"  type="button"   styleClass="ui-confirmdialog-yes"  icon="ui-icon-check"  style="text-decoration:none"/>
+                        </p:confirmDialog>
+                           
+                  
+                    
+                     
+                    <h:commandLink action="#{sign_in.Clear}"  title="Log Out">
+                     <img src="Image/log_out.png"  style="position: relative;
+                      float: right; margin-right: 35px;
+                     top: 6px;  height: 30px; width: 30px;"/>
+                           </h:commandLink>
+                   
+                   
+                    
+           
+             <h:inputText  id="sea" value="#{searchouse.search}"  title="Search bar"
+                style="position: relative; top: 6px; border-radius: 10px;  color: #FFF; 
+                width: 300px;  height: 35px; border:none; color:#000; 
+                background-color: #FFF;   margin-right: 60px; float: right;">
+         <f:passThroughAttribute name="placeholder" value="  Enter Search" />
+         </h:inputText>
+          
+          
+          <h:commandLink action="#{searchouse.run_query()}" > 
+          <img src="Image/search.png" style="position: relative; height: 23px; top:11px;
+                              width: 20px; float: right;  margin-right: 10px;"></img>
+                              
+          </h:commandLink>
+        
+
+</div>
+
+
+
+<div       style=" display: inline-block;   width: 80%; height: 50px; margin-top:-50px;">
+
+  <div    style="float: left;  text-align: center;  margin-left: 10px;  ">
+  
+          
+               <h:commandLink action="#{sub_controller.web_transfer}"    style="display: inline-block;  margin: 40px; margin-top:40px;">
+             <label style="display: inline-block; font-family: fantasy; color:#61FFFF ">To do Cat</label> 
+             </h:commandLink>
+             
+             <h:commandLink action="#{sub_controller.redirect2()}"   style="display: inline-block;  margin: 40px; margin-top:40px;">
+               <label style="display: inline-block;   font-family: fantasy; color:#61FFFF">Wallet</label> 
+               </h:commandLink>
+               
+               <h:commandLink action="#{sub_controller.redirect2_Pha()}"  style="display: inline-block;  margin: 50px; margin-top:40px;" >
+               <label style="display: inline-block;   font-family: fantasy; color:#61FFFF">Group mining</label> 
+               </h:commandLink>
+               
+               <h:commandLink action="#{sub_controller.redirect_loc1()}"   style="display: inline-block;  margin: 50px; margin-top:40px;">
+               <label style="display: inline-block;   font-family: fantasy; color:#61FFFF">Location Report</label> 
+               </h:commandLink>
+               
+               
+               <h:commandLink action="#{sub_controller.redirect_Location()}"  style="display: inline-block;  margin: 50px; margin-top:40px;">
+               <label style="display: inline-block;   font-family: fantasy; color:#61FFFF">delivery Scheme</label> 
+               </h:commandLink>
+               
+               
+               <h:commandLink action="#{sub_controller.redirect_dime()}"   style="display: inline-block;  margin: 50px; margin-top:40px;" target="content_flow">
+               <label style="display: inline-block;  font-family: fantasy; color:#61FFFF">Mind Flexing</label> 
+               </h:commandLink>
+</div>
+</div>
+  
+			
+</h:form>  
+</div>
+
+
+<div     style="position:fixed;     width: 100%; height: 100px; margin-top: 10px;">
+					 	
+			  
+			  <iframe   scrolling="no"   name="content_flow"   src="http://localhost:8080/FILE/Goemap.xhtml"   
+			  style="margin-left:20px;  display: inline-block;    width: 75%; height: 525px; margin-top:-420px; border: none; "/>
+			
+			
+
+</div>
+
+
+
+
+</h:body>
+
+</html>

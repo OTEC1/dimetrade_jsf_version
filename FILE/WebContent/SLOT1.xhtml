@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+  <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('cache-Control','no-cache, no-store')}"/>
+    
+  
+    <h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<link rel="stylesheet" type="text/css" href="CSS/Dipcss.css"></link>
+       <meta name="viewport" content="width=device-width, intial-scale=1.0"></meta>
+       
+       
+ <style>
+       
+ .scrollbarz{
+    height: 485px;
+     margin-bottom: 25px;
+     margin-top: 0px;
+     width: 710px;
+     overflow-y: scroll;
+     
+ }
+ 
+ 
+ 
+
+ 
+ #style-1z::-webkit-scrollbar{
+     width: 9px;
+  background-color: #070530;
+   
+ }
+ 
+  #style-1z::-webkit-scrollbar-thumb{
+     background-color:   lawngreen;
+     border-radius: 10px;
+ }
+       
+       </style>
+    </h:head>
+
+
+    <h:body >
+	  
+	 
+     
+              <div class="scrollbarz" id="style-1z" >
+            
+                <div class="force-overflowz" >
+                
+            <h:form>
+            <ui:repeat  var="row" value="#{main_Controller.productList}"   >
+                
+             
+                <div style="display: inline; float: left; margin: 10px; background-color: #E8F5FE; width: 300px; height: 270px;">
+               
+                    
+                    <!--left-->
+                   
+                    <p:graphicImage value="#{main_Controller.productImage}"   
+                    cache="false"  width="200px"  height="200px;"  
+			      style="display: inline-block; float:left;  margin-left:10px; margin-top:10px;">
+                        <f:param name="pid" value="#{row.productId}" />
+                    </p:graphicImage> 
+                    
+                    <br></br>
+                    
+                    
+                    <h:inputHidden value="#{rows.ids}"/>
+                    <h:outputLabel value="Price #{row.productName}"   
+                        style= "float: left; width:20px; height:12px;
+                        margin-left: 40px;  margin-top:10px;   color:#070530; "/>
+                      
+                      
+                      
+                    <br></br>
+                    <p:commandButton   id="gx"   value="+#{sOrderTaker.plus}"     
+                    style="position:relative; width:50px;  display:  inline-block; 
+                    color:#000;  float:left;  margin-top:190px;     margin-left: -260px; ">
+                    <p:ajax update="gx"  listener="#{sOrderTaker.plus1}"/>
+                     </p:commandButton>
+                     
+                     
+                     <p:commandLink  update="gx">
+                    <h:outputText value="ˇ"    
+                     style="position:relative; width:10px;  display:  inline-block; 
+                      color:#1AFF50;  float:left;  margin-top:200px;   background-color:#000;  margin-left: -200px;  font-size:20px;" />
+                         <p:ajax update="gx"  listener="#{sOrderTaker.minus1}"/>
+                  </p:commandLink>
+                
+                
+                    
+                    
+                    
+                     <p:commandButton   value="Buy"                                            
+                                style="float: right;  margin-right: 5px; color:#1AFF50;  margin-top:185px; " >
+                              <f:param name="ridea" value="#{row.productName}" /> 
+                            <f:param name="rides" value="#{row.productId}" /> 
+                              <p:ajax update="gx"  listener="#{sOrderTaker.GAMES()}" ></p:ajax>
+                      </p:commandButton>
+                       
+                      <br></br>  <br></br>    <br></br> 
+                  
+                </div>
+                
+			                  <h:commandLink>
+			                  <h:graphicImage  alt="" url="Image/tshares.png" 
+			                    style=" width:30px; height: 30px; border-radius: 200px;  ">
+                                    </h:graphicImage>
+                                    </h:commandLink>
+            
+        </ui:repeat>
+            </h:form>
+                
+                    
+                    </div>
+                    </div>   
+</h:body>
+</html>

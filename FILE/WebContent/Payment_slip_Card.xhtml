@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+<ui:repeat  value="#{recipetDAO.itemlist_sum}"   var="sa">
+   <fieldset style="margin-left:40px; border-color:sliver; border-radius:10px; border-size:2pt; width: 70%;">
+   <h:form>
+   <center>
+   <label style="color:#fff">Total Amount</label>
+   <br></br>
+   <h:outputText value="#{sa.cs}"   style="color:#FFF"></h:outputText>
+    </center>
+    
+     <center>
+     <br></br>
+      <label style="color:#1AFF00; float:left; margin-left: 110px;">Card No:</label>
+     <br></br>
+   <h:inputText  value="#{recipetDAO.card_no}"   style="color:#FFF ; height:25px; background-color:#000; border-radius:5px; border-color:#1AFF00"></h:inputText>
+    </center>
+    
+    
+    
+    <center>
+     <br></br>
+      <label style="color:#1AFF00; float:left; margin-left: 110px;">Home Address</label>
+     <br></br>  <h:inputText  value="#{recipetDAO.address}"   style="color:#FFF ; height:25px; background-color:#000; border-radius:5px; border-color:#1AFF00"></h:inputText>
+    </center>
+    
+    
+    <center>
+ <br></br>
+      <label style="color:#1AFF00; float:left; margin-left: 110px;">Phone</label>
+     <br></br>
+   <h:inputText  value="#{recipetDAO.phone}"   style="color:#FFF ; height:25px; background-color:#000; border-radius:5px; border-color:#1AFF00"></h:inputText>
+    </center>
+    
+    
+    <center>
+     <br></br>
+      <label style="color:#1AFF00; float:left; margin-left: 110px;">Remarks</label>
+     <br></br>
+   <h:inputTextarea value="#{recipetDAO.remarks}"   style="color:#FFF ; height:95px; background-color:#000; border-radius:5px; border-color:#1AFF00"></h:inputTextarea> 
+    </center>
+    
+    
+      <h:commandButton value="Send"  action="#{recipetDAO.user_details_Submit()}"            style="float:left; background-color:#000; color:#1AFF00"></h:commandButton>
+                <h:outputText value="#{recipetDAO.outputing}"   style="float:right; color:#1AFF00"></h:outputText>
+          
+   </h:form>
+</fieldset>
+</ui:repeat>
+</h:body>
+</html>

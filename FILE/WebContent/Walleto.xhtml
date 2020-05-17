@@ -1,0 +1,376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+	
+ <f:event type="preRenderView"  listener="#{facesContext.externalContext.response.setHeader('cache-Control','no-cache, no-store')}"/>
+    
+  
+    <h:head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+
+        <meta name="viewport" content="width=device-width, intial-scale=1.0"></meta>
+        
+        
+        <script type="text/javascript" src="jquery-1.9.0.min.js">
+      </script>
+       <script>
+       
+       $(document).ready(function() {
+    	 
+    	   ref();
+	});
+     function ref() {
+    	   setTimeout(function () {
+	
+			$('.iframes').fadeOut('slow').fadeIn('slow');
+			ref();
+		}, 500);
+		
+	}
+       </script>
+      
+     <style>
+     
+     .force-overflowz{
+        min-height: 100px;
+ }
+ 
+  .scrollbarz{
+    height: 200px;
+     margin-bottom: 25px;
+     margin-top: 50px;
+     width: 200px;
+     overflow-y:  scroll;
+
+      
+   
+  
+ }
+ 
+ #style-1z::-webkit-scrollbar{
+     width: 9px;
+     height: 2px;
+
+  
+   
+ }
+ 
+  #style-1z::-webkit-scrollbar-thumb{
+     background-color:   #FFF;
+     border-radius: 10px;
+     height: 2px;
+     
+ }
+     
+     </style>
+       
+    </h:head>
+    
+    
+    
+    <h:body style="background-image: url('Image/sams.png'); 
+     background-size: cover; background-repeat: no-repeat">
+   
+   
+   
+   <h:form>
+  
+   <img src="Image/tara.png" style="position: relative; width: 50px; height: 50px; top:170px;
+    margin-left: 290px;"></img>
+
+ </h:form>
+
+
+
+
+
+
+    <!-- Editable Section_ Funds Withdraw -->
+    
+            <div style="position:absolute;    width: 280px; height: 30px;  float: left;  margin-top: 140px;">
+            
+            
+            <!-- Fund Receiver -->
+            <h:form>
+           &nbsp; &nbsp;  <h:commandButton  title="Recieve funds"  image="Image/send_fund.png"  alt="Receive Funds" 
+            style="position:absolute; height: 40px; width: 40px;  margin-top:10px; " />
+        
+            
+             <!-- Fund Sender -->
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;  
+             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            <h:commandButton  title="Send funds"   image="Image/recieve_fund.png"  alt="Send Funds" 
+             style="position:absolute; height: 40px; width: 40px; margin-top:10px; " />
+        
+            
+             <!-- User profile and data edit -->
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; 
+                 &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;   
+                 <h:commandButton  image="Image/user.png"  title="Update User Profile" 
+                  style="height: 40px; width: 40px; margin-top:15px;"   action="#{user_updater.user_editor}"  />
+        
+            
+            </h:form>
+            
+            </div>
+            
+            
+            
+            
+       	  
+						  
+
+
+
+<!-- ODD_GROUP -->
+       <p:outputPanel    rendered="#{searchouse.div_display}">
+            <div class="scrollbarz" id="style-1z"  style="position: relative; 
+             float:right;   width: 480px; margin-top: 25px; margin-right: 40px;" >
+                <div  class="force-overflowz">
+		    	<br></br>
+		    	<ui:repeat     var="row"  value="#{main_Controller.wallet_run}" >
+		    	 
+              <p:column headerText="Image" style="width:20%">
+             
+              <h:form>
+             
+               <h:commandLink action="#{main_Controller.SEND_ODD_QUERY()}"   title="Fix">
+            
+	               <p:graphicImage value="#{main_Controller.walle_pro}"   height="125" width="125"   cache="false"  class="c"
+                                                        style="border-radius:5px; border-color: darkturquoise; 
+                                                        border:3px solid darkturquoise;  float: right; border-radius:100px;">
+						<f:param name="pid" value="#{row.ids}"  />
+					</p:graphicImage> 
+					 
+					
+				<h:inputHidden  value="#{row.ids}"/>	 
+					 
+				
+              	<h:outputText value="#{row.productName}"   id="c"    title="Group   stack"  style="float:right; width:50px; color:#FFF; size:17pt" />
+					
+					  <h:outputText value="ST: #{row.productId}"   title="Group name"      id="t"    style="float:right;width:50px;color:#FFF; size:17pt"/> 
+					  
+ 
+              	
+              	<f:param name="sds"      value="#{row.ids}"  />
+              	
+              	
+                         </h:commandLink>
+                            </h:form>
+              	</p:column>
+             
+                 </ui:repeat>
+                   
+                    </div>
+            </div>
+		</p:outputPanel>
+		
+		
+		
+		
+		<!-- ODD_SERACH_GROUP -->
+   
+		
+		
+		
+		
+		
+		
+	
+		
+						 
+						
+						
+							 
+		<!-- CURRENT_USER -->
+		 <div  style="margin-top:65px;">    
+		  <ui:repeat var="row"   value="#{current_GraphicImageUser.wallet_user_list}"  >
+                       
+                         <h:form>
+      
+				            <p:column >
+							<p:graphicImage value="#{current_GraphicImageUser.one_wallet_user_image}"    cache="false" 
+							id="Sams"  style="position: relative; width:110px; height: 110px; border-radius: 200px;   
+							 float:left;  margin-left:54px; margin-top: -60px;">
+							</p:graphicImage>
+						    </p:column>
+		    
+					       <h:outputText style="border-radius: 5px; height: 10px; 
+					         font: arial, veranda, san-serif; size: 2px; color: black; position: relative;
+					       float: left;  margin-left: 55px; margin-top: -42px;"   value="#{row.name}">
+					       </h:outputText>
+					        </h:form>
+                        
+                          <h:form >
+                              <h:outputText style="border-radius: 5px; height: 10px; width: 120px; 
+                                 font: arial, veranda, san-serif; size: 2px; color: black; position: relative;
+                              float: left;  margin-left: 55px;  margin-top: 1px;"  value="#{row.email}" >
+                             </h:outputText>
+                          </h:form>
+                         
+                          
+                           <h:form id="dimeaddress">
+                               <h:outputText style="border-radius: 5px; height: 10px; width: 100px; 
+                                  font: arial, veranda, san-serif; size: 2px; color: black;  position: relative;
+                           float: left;  margin-left: -120px;  top: 40px;"   value="#{row.address}">
+                           </h:outputText>
+                          </h:form>
+                        
+                          </ui:repeat> 
+                          
+                   </div>           
+             
+             
+             
+               <div style="position:relative;  margin-top: -252px; width: 490px; height: 30px; float: left; margin-left: 432px;">
+               <h:form>
+               <h:commandLink   title="Update Stack">
+               <img src="Image/tara.png" alt=""  style="margin-left:10px;  width: 20px; height: 25px;"/></h:commandLink>
+               <h:commandLink title="delete Stack">
+                 <img src="Image/tara.png" alt=""  style="float:right; margin-right:13px;  width: 20px; height: 25px;"/></h:commandLink>
+                    <h:commandLink action="#{main_Controller.spam}" title="Refresh Stack board">
+                 <img src="Image/tara.png" alt=""  style="float:right; margin-right:165px;  width: 20px; height: 25px;"/></h:commandLink>
+          
+                 </h:form>
+               </div>
+           
+           
+           <!-- ODD_DISPLAYER -->
+        <div  style="position:relative;  float: left;  margin-top:30px; width: 400px;  height: 100px; margin-left: 450px; ">
+	     
+	     	<ui:repeat var="row"   value="#{main_Controller.group_stack_plate}" >
+		
+	      	 <p:column >
+							<p:graphicImage value="#{main_Controller.late_Image}"  cache="false"    rendered="#{main_Controller.flush}"
+							class="Sams"  style="position: relative; width:110px; height: 110px; border-radius: 200px;   
+							 float:right;  margin-right:-95px; margin-top: -14px;">
+							</p:graphicImage>
+						    </p:column>
+		
+		                <!--   <h:form>
+		              <h:outputText  style="border-radius: 5px; height: 10px; width: 100px;   
+					         font: arial, veranda, san-serif; size: 2px; color: black; position: relative;
+					       float: right;  margin-right: -82px; margin-top: 40px;"   value="#{row.group_name}">
+					       </h:outputText>
+					        </h:form>--> 
+                        
+                     
+                              <h:outputText style="border-radius: 5px; height: 10px; width: 120px; 
+                                 font: arial, veranda, san-serif; size: 2px; color: black; position: relative;
+                              float: right;  margin-right: -35px;  margin-top: 35px;"  value="ST #{row.ID}"    rendered="#{main_Controller.flush}">
+                             </h:outputText>
+                             
+                             <br></br>
+		                <h:form>
+		          
+		          
+		          
+		          
+		          
+		          <!-- STACK CHECK -->
+		          <div style="position: absolute; left: 200px;  ">
+		           <h:inputText value="#{main_Controller.tstack}"   title="Stack"
+		             style="position:absolute;  width:50px; float:right; margin-right:6px; margin-top:20px; border-radius:10px; ">
+		            <p:ajax  event="keyup"   update="es"  listener="#{main_Controller.clear}"/>
+		            </h:inputText>
+		           
+		        <p:outputLabel  value="#{main_Controller.update}"  id="es" 
+		                        style="position:absolute; width:300px;   margin-right:100px; float:right; margin-top:2px; color:blue"/>
+		          </div>
+		               <h:commandButton  action="#{main_Controller.hammer}"   title="Match"  update="sd"   
+		           image="Image/staking.png"
+		              style="position: relative; margin-top:-143px; float:left; margin-left:-125px; height:45px; width:40px;">
+		                              <f:param name="xcx"    value="#{row.group_name}"/>
+		                               </h:commandButton>
+		                               
+		                                   <p:ajax    event="click"   update="es"  listener="#{main_Controller.next}" />
+		                             	    
+		          
+		          
+		          
+		          
+		           <!-- MINNER_DISPLAY -->
+		           
+		            <div class="iframes"   
+					    	style="position: relative; color: #54FF00;  font-size:18px;  float:left;   left:  -360px; 
+					    	 height: 180px; width: 150px; top:-70px;">  
+					       
+					    
+				    <p:dataTable      var="ran"     value="#{current_GraphicImageUser.figureRunner}"  rendered="#{sign_in.user_acccount}">
+					      <p:column   style="background-color:#070530; border-color:#070530; color:#2DFF06; width:150px; ">
+					      <p:outputLabel   value="#{ran.ref}"   title="Referral bonus"   />
+					      </p:column>
+				       </p:dataTable>
+					       
+					<br></br>	
+					
+					  <p:dataTable       var="ran"     value="#{current_GraphicImageUser.figureRunner}"  rendered="#{sign_in.user_acccount}">
+					      <p:column   style="background-color:#070530; border-color:#070530; color:#2DFF06; width:150px; ">
+					      <p:outputLabel   value="#{ran.dime}"  title="digidime"   />
+					      </p:column>
+				       </p:dataTable>
+						   
+						   
+						 
+					
+					  <p:dataTable  id="sd"       var="ran"     value="#{current_GraphicImageUser.figureRunner}"   rendered="#{sign_in.user_acccount}">
+					      <p:column   style="position: relative; background-color:#070530; border-color:#070530; color:#2DFF06; width:150px;  top:30px;">
+					      <p:outputLabel   value="#{ran.gas}"  title="digi recharge"   />
+					      </p:column>
+				       </p:dataTable>
+						 </div>
+					
+		         </h:form>
+		             
+	    	</ui:repeat>
+	     
+	    
+     
+     
+              
+
+		
+					  
+     
+     
+              
+		     	     <ui:repeat var="row"   value="#{current_GraphicImageUser.wallet_user_list}">
+		                      
+		                      <h:form> 
+		       
+			          
+						<p:graphicImage value="#{current_GraphicImageUser.one_wallet_user_image}"    cache="false"  
+						id="Sams"  style="position: relative; width:110px; height: 110px; border-radius: 200px;   
+						 float:left;  margin-left:-122px;    top: -32px;">
+						</p:graphicImage>
+					   
+		  
+		   
+		                <!-- Stake Socket Send --> 
+				              <h:commandLink  action="#{main_Controller.stake_ativate_wallet_clear}"  title="Take down stake">
+				                <img src="Image/broom.png"  
+				                style="position:absolute; margin-top: -45px; right: -115px; width: 30px; height: 30px;"></img>
+				              </h:commandLink>
+				              </h:form>
+		                  <!--   <h:form id="dimeaddress">
+		                        <h:outputText style="border-radius: 5px; height: 10px; width: 100px; 
+		                           font: arial, veranda, san-serif; size: 2px; color: black;  position: absolute;
+		                    float: left;  margin-left: 130px;  top: 40px;"   value="#{row.address}">
+		                    </h:outputText>
+		                   </h:form>--> 
+		                    
+		                 </ui:repeat> 
+                 
+                 
+	    </div>             
+   
+   
+   </h:body>
+
+</html>

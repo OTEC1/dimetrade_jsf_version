@@ -1,0 +1,345 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	 xmlns:p="http://primefaces.org/ui">
+	 
+	 <h:head>
+	 
+	    <script type="text/javascript"   src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript">
+
+
+            $(document).ready(function () {
+                $('.clicks').hover(function () {
+                $("#fx").width(300).height(100).fadeIn('slow').show();
+                $(".ks").width(200).height(20).fadeIn('slow').show();
+                $(".js").width(70).height(20).fadeIn('slow').show();
+                $(".ps").width(300).height(20).fadeIn('slow').show();
+                $(".pics").width(30).height(30).fadeIn('slow').show();
+                });
+			 });
+            
+            
+            $(document).ready(function () {
+                $('.number').hover(function () {
+                $(".esq").width(300).height(100).fadeIn('slow').show();
+                $(".ksi").width(200).height(20).fadeIn('slow').show();
+                $(".jsi").width(70).height(20).fadeIn('slow').show();
+                $(".psi").width(300).height(20).fadeIn('slow').show();
+                $(".likes").width(30).height(30).fadeIn('slow').show();
+                });
+			 });
+         
+            </script>
+             
+             <style>
+             
+          
+		 
+		
+             </style>
+	 </h:head>
+  <h:body>
+       
+      
+        <img src="Image/pops.png" style="position: relative; width: 500px; height: 450px;  float: left;
+         margin-left: 10px;  top: 30px;"></img>
+        
+         
+   <img   src="Image/youpop.png" style="height: 440px; width: 255px; float: right;  broder-radius:20px;
+               margin-right: 20px; margin-top: 40px;">
+   </img>     
+   
+           <h:form>
+       
+               <div style=" height: 400px; width: 120px; float: left; 
+               margin-right: 30px; margin-top: 40px;">
+               
+               
+                   <marquee direction="right">
+                <h:commandLink action="window" >
+                <img  src="Image/source.gif"  style="width: 100px; height: 70px;"></img>
+                </h:commandLink></marquee>
+                
+                  <marquee direction="right">
+                <h:commandLink action="window" >
+                <img  src="Image/source.gif"  style="width: 100px; height: 70px;"></img>
+                </h:commandLink></marquee>
+                
+                  <marquee direction="right">
+                <h:commandLink action="window" >
+                <img  src="Image/source.gif"  style="width: 100px; height: 70px;"></img>
+                </h:commandLink></marquee>
+                
+                  <marquee direction="right">
+                <h:commandLink action="window" >
+                <img  src="Image/source.gif"  style="width: 100px; height: 70px;"></img>
+                </h:commandLink></marquee>
+                
+                  <marquee direction="right">
+                <h:commandLink action="window" >
+                <img  src="Image/source.gif"  style="width: 100px; height: 70px;"></img>
+                </h:commandLink></marquee>
+                
+               
+               
+               </div>
+                </h:form>
+
+            
+         
+            
+            <h:form>
+            <h:outputLabel  value="CG 00.00"  style="position:
+		            absolute; top: 54px; text-decoration: none; color:  #11FF09; float:left;  margin-left: -630px;  width:250px; height:30px;
+		            font-size: 15px;"/>
+		            
+		             <h:outputLabel  value="TR 07"  style="position:
+		            absolute; top: 54px; text-decoration: none; color:  #11FF09; float:left;  margin-left: -250px;  width:200px; height:30px;
+		            font-size: 15px;"/>
+		            
+		            
+		            <img src="Image/spinner.gif" style="position:absolute;  width: 50px; height: 50px; border-radius: 200px;   float:left;  margin-left: -350px; margin-top: 30px; "></img>
+		         
+		      
+		      
+		        <img src="Image/spinner.gif" style="position:absolute;  width: 50px; height: 50px; border-radius: 200px;   float:left;  margin-left: -520px; margin-top: 30px; "></img>
+		          
+            </h:form>
+            
+            
+                <a class="clicks" >
+				          
+				          
+				      <ui:repeat     var="row"  value="#{queDAO.random_shift}"  >
+				    	  <h:form>
+							         <h:outputText  value="odds: #{row.odds}"   style="position: 
+									    absolute; top: 54px; text-decoration: none; color:  #11FF09; float:left; 
+									     margin-left: -450px;  width:200px; height:30px;
+						  	            font-size: 15px;"/>
+						             <f:param name="sds" value="#{row.ids}"  />
+					            
+					                 <div  id="fx" style="position: absolute; background-color: #09FFCD;  
+					                  margin-top:10px; margin-left :100px; border-radius: 10px; height:0px; width: 0px;">
+					           
+					                <h:outputText   class="ks"   value="User: #{queDAO.current_player}"  style="float:right; margin-right:45px;  display:none "/>
+					                  <h:inputText    class="js"    value="#{queDAO.tstack}"   style="width:50px; float:right; margin-right:120px;  display:none  ">
+					                   <p:ajax  event="keyup"   update="ous"  listener="#{queDAO.clear}"/>
+					                    </h:inputText>
+                                         <h:outputLabel class="ps"   value="#{queDAO.update}"  id="ous"   
+                                           style="width:300px; float:right; margin-right:-7px;  "></h:outputLabel>
+					               
+					                   
+					                   <!-- Match stack -->
+					                    <p:commandLink actionListener="#{queDAO.sendin}"  update="ous"  >
+					                    <img  class="pics"   src="Image/upload_change.png" 
+					                    style="width: 0px; height: 0px; display: none; 
+					                    float: right; top:10px; margin-right: 10px;"></img>
+					                    </p:commandLink>
+					               
+                                           </div>
+                                             
+					               </h:form>
+		              	  </ui:repeat>
+		              	  
+		              	  
+			          </a>
+			          
+			          
+			          
+			          
+			          
+			          
+			          
+			          
+			          
+			          
+			          <!-- -->
+			          
+			          
+			          
+            
+            <h:form rendered="#{queDAO.fix}">
+            
+		            
+             <ui:repeat value="#{queDAO.credentialsList}"  var="vox">
+      
+		      <div style=" position:relative;    margin-left: -143px; float: left; top:-13px;">
+		            <h:outputLabel  value="#{vox.name}"  style="position:
+		            absolute; top: 120px; text-decoration: none; color:  blue; float:left;  margin-left: -430px; 
+		            font-size: 20px;"></h:outputLabel>
+		    
+            
+          
+            <h:commandLink value="#{vox.name1}"   action="#{queDAO.gamea()}" style="position:
+            relative; top: 175px; text-decoration: none; color:  greenyellow;  float:  left; margin-left:  -305px; 
+            font-size: 20px;">
+            <f:param    name="sw1"   value="#{vox.name1}" ></f:param>
+            </h:commandLink>
+  
+            
+          
+           <h:commandLink value="#{vox.name2}" action="#{queDAO.gameb()}" style="position:
+            relative; top: 275px; text-decoration: none; color:  red;   float:  left; margin-left:  -455px;
+            font-size: 20px;">
+            <f:param    name="sw2"   value="#{vox.name2}" ></f:param>
+           </h:commandLink>
+        
+            
+           
+            <h:commandLink value="#{vox.name3}" action="#{queDAO.gamec()}" style="position:
+            relative;  text-decoration: none; color: yellow;  float:  left; margin-left:  -150px; top: 280px;
+            font-size: 20px;">
+             <f:param    name="sw3"   value="#{vox.name3}" ></f:param>
+            </h:commandLink>
+     
+            
+             
+            <h:commandLink value="#{vox.name4}" action="#{queDAO.gamed()}" style="position:
+            relative; top: 375px; text-decoration: none; color:  blue; float:  left; margin-left:  -300px;
+            font-size: 20px;">
+             <f:param    name="sw4"   value="#{vox.name4}" ></f:param>
+            </h:commandLink>
+      
+          
+               
+                   <p:graphicImage value="#{queDAO.que_context_image}" cache="false" 
+                                   style="width: 190px; height: 150px; position: relative;
+                                   top: 210px; float: left; margin-left: -360px;"></p:graphicImage>
+        </div>
+       
+                  
+        </ui:repeat>
+          
+         
+            </h:form>
+            <h:form>
+              <h:commandLink action="#{queDAO.que_finder}" >
+           <img src="Image/NewFace/dong.png" width="40px" height="40px;" style="position: relative; 
+          margin-top: 410px; float: left ; margin-left: -425px" ></img>
+             </h:commandLink>
+             
+               </h:form>
+               
+               
+               <div style=" position:relative;          width: 220px; height: 400px;  float: right;  margin-right: -225px; margin-top: 70px;">
+               <h:form>
+               <h:commandLink action="#{queDAO.input_show()}"  title="Funnel  In">
+               <img src="Image/tara.png"  style="position:relative;      width: 30px; height: 30pxl; float: right; margin-right: 50px; margin-top: 245px;"></img>
+               </h:commandLink>
+               
+               
+                <h:commandLink action="#{queDAO.show_value()}"  title="Show Result">
+               <img src="Image/tara.png"  style="position:relative;      width: 30px; height: 30pxl; float: right; margin-right: 62px; margin-top: 245px;"></img>
+               </h:commandLink>
+               
+               
+                  
+             
+               </h:form>
+               
+               
+             
+               
+               
+               <div style="position:absolute;    margin-top: -2px;">
+               
+               
+               <h:form rendered="#{queDAO.render_input}">
+               
+               
+                  <h:commandLink action="#{queDAO.read_value()}">
+               <img src="Image/tara.png"  style="position:relative;      width: 30px; height: 30pxl; float: right; margin-right: 140px; margin-top: 255px;"></img>
+               </h:commandLink>
+               
+              <div style="float: left; margin-top: -152px; ">
+               &nbsp; &nbsp; &nbsp; &nbsp; <h:inputText       value="#{queDAO.n1}"      style="width:20px; height:20px;"/>
+              &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;   <h:inputText value="#{queDAO.n2}"    style="width:20px; height:20px;"/>
+               &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;    <h:inputText value="#{queDAO.n3}"   style="position:absolute;      width:20px; height:20px; "/>
+             </div>
+             
+              
+               </h:form>
+               </div>
+               
+               
+                 <h:form rendered="#{queDAO.vbx}">
+               <div style="float: left; margin-top: -140px; ">
+                  
+                  
+               &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+                <h:commandLink action="#{queDAO.uploadera}"   style="text-decoration:none">
+                <h:outputText        value="#{queDAO.c1}"      style="width:20px; height:20px; "/>
+               <f:param name="wat1"   value="#{queDAO.c1}"></f:param>
+               </h:commandLink>
+               
+               
+              &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;  &nbsp;
+              <h:commandLink  action="#{queDAO.uploaderb}"  style="text-decoration:none" > 
+              <h:outputText  value="#{queDAO.c2}"    style="width:20px; height:20px;"/>
+                 <f:param name="wat2"   value="#{queDAO.c2}"></f:param>
+              </h:commandLink>
+              
+              
+               &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp;&nbsp;&nbsp;
+               <h:commandLink  action="#{queDAO.uploaderc}"   style="text-decoration:none" >
+               <h:outputText   value="  #{queDAO.c3}"   style="position:absolute;      width:20px; height:20px; "/>
+                  <f:param name="wat3"   value="#{queDAO.c3}"></f:param>
+              </h:commandLink>
+             </div>
+               
+               </h:form>
+               
+               
+               <h:form>
+                 <h:outputText        value="#{queDAO.fleet}"      style="position:absolute;     height:20px; top:42px; left:5px;"/>
+                    
+                    
+                    
+                     </h:form>
+                     
+                     
+                       <a class="number" >
+				          
+				          
+				      <ui:repeat     var="row"  value="#{queDAO.random_shift}"  >
+				    	  <h:form>
+							         <h:outputText  value="odds: #{row.odds}"   style="position: 
+									    absolute; top: -12px; text-decoration: none; color:  #11FF09; float:left; 
+									     margin-left: 80px;  width:100px; height:30px;
+						  	            font-size: 15px;"/>
+						             <f:param name="sds" value="#{row.ids}"  />
+					            
+					                 <div  class="esq"  style="position: absolute; background-color: #09FFCD;  
+					                  margin-top:10px; margin-left :-30px; border-radius: 10px; height:0px; width: 0px;">
+					           
+					                <h:outputText   class="ksi"   value="User: #{queDAO.current_player}"  style="float:right; margin-right:45px;  display:none "/>
+					                  <h:inputText    class="jsi"    value="#{queDAO.tstack}"   style="width:50px; float:right; margin-right:120px;  display:none  ">
+					                   <p:ajax  event="keyup"   update="dgs"  listener="#{queDAO.clear}"/>
+					                    </h:inputText>
+                                         <h:outputLabel class="ps"   value="#{queDAO.update}"  id="dgs"   
+                                           style="width:300px; float:right; margin-right:-7px;  "></h:outputLabel>
+					               
+					                   
+					                   <!-- Match stack -->
+					                    <p:commandLink actionListener="#{queDAO.sendin}"  update="dgs"  >
+					                    <img  class="likes"   src="Image/upload_change.png" 
+					                    style="width: 0px; height: 0px; display: none; 
+					                    float: right; top:10px; margin-right: 10px;"></img>
+					                    </p:commandLink>
+					               
+                                           </div>
+                                             
+					               </h:form>
+		              	  </ui:repeat>
+		              	  
+		              	  
+			          </a>
+                     
+               </div>
+        </h:body>
+</html>

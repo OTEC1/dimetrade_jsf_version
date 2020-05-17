@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	     xmlns:p="http://primefaces.org/ui">
+
+
+
+<h:head>
+
+   
+<style>
+
+
+      .scrolling1::-webkit-scrollbar{
+     width: 9px;
+     opacity: 5s;
+ }
+ 
+.scrolling1::-webkit-scrollbar-thumb{
+     background-color:  #00ffff;
+     border-radius: 10px;
+     margin-top:20px;
+ }
+ 
+#space{
+
+       height: 600px; 
+       margin-bottom: 25px;
+        width: 100%;  
+        overflow-y: scroll;
+}
+  
+  
+  .container{
+  
+   display: inline-flex;
+  }
+</style>
+
+
+</h:head>
+
+
+<h:body>
+ <h:form>	
+
+<div   class="scrolling1"  id="space"    style="text-align: center;">
+  	    
+		
+		 
+		 
+		 
+		 	
+	
+		
+		 
+	
+		 
+	
+	 <ui:repeat  value="#{main_Controller.scroll_query}"    var="row"  >
+	
+				    
+			 <div   class="container"     style="  margin: 10px; background-color: #E8F5FE; width: 280px; height: 250px;">   
+		    
+		
+			 <!-- User Click -->
+							
+				 <h:commandLink action="#{sub_controller.search_result}"  target="_parent">
+						      <p:graphicImage  value="#{main_Controller.scroll_image}"  
+							   cache="false"  width="180px"  height="180px;"  
+							      style="display: inline-block; float:left;  margin-top:5px; margin-left:10px;">
+				                      <f:param name="sending"    value="#{row.scroll_id}" />
+						                  </p:graphicImage> 
+							
+							
+							<h:outputText   value="Sum of new Samples too Check out"   
+							style="width:100px; height:150px; float:right; margin-top:-180px;"/>
+							
+							  <h:inputHidden   value="#{row.scroll_id}"  style="color:#000"/>
+							  <br></br>
+				            <h:inputHidden    value="#{row.address}"  style="color:#000"/>
+				            
+			               <f:param name="query_server"    value="#{row.scroll_id}" />
+			             <f:param  name="owner"      value="#{row.address}"/>
+					           </h:commandLink>  	
+				
+	              <h:inputHidden   value="#{row.scroll_id}"/>
+	      
+			</div>
+		     
+ </ui:repeat>	 
+      
+
+	
+
+
+
+
+
+</div>
+   
+    </h:form>
+</h:body>
+</html>
+
+

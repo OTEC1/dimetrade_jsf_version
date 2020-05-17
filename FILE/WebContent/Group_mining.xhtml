@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+
+   <f:event type="preRenderView" listener="#{facesContext.externalContext.response.setHeader('cache-Control','no-cache, no-store')}"/>
+   
+    <h:head>
+        <title></title>
+      
+      
+        <script type="text/javascript" src="jquery-1.9.0.min.js">
+      </script>
+       <script>
+       
+       $(document).ready(function() {
+    	 
+    	   ref();
+	});
+     function ref() {
+    	   setTimeout(function () {
+	
+			$('.iframes').fadeOut('slow').fadeIn('slow');
+			ref();
+		}, 500);
+		
+	}
+       </script>
+      
+      <style>
+      
+      
+       
+.force-overflowz{
+        min-height: 500px;
+ }
+ 
+  .scrollbarz{
+    height: 300px;
+     margin-bottom: 25px;
+     margin-top: 130px;
+     width: 230px;
+     overflow-y: scroll;
+
+      
+   
+  
+ }
+ 
+ #style-1z::-webkit-scrollbar{
+     width: 9px;
+   
+ }
+ 
+  #style-1z::-webkit-scrollbar-thumb{
+     background-color:   lawngreen;
+     border-radius: 10px;
+ }
+      </style>
+    </h:head>
+    <h:body  style="background-image: url('Image/Web1920.png'); background-size: cover; background-repeat: no-repeat">
+       
+       
+       <h:form id="productListForm"    rendered="#{sub_controller.s1}">
+
+        <p:outputPanel >
+            <div class="scrollbarz" id="style-1z"  style="float: right; margin-right: 150px;">
+                <div class="force-overflowz"  >
+		
+		
+			<ui:repeat id="docId"    var="row"   value="#{sub_controller.group_list_all}"  >
+             <h:commandLink  action="#{sub_controller.PASS_ON}">
+			    <p:graphicImage value="#{sub_controller.group_list_all_img}"   cache="false" 
+				           	height="120" width="120" style="position:relative; 
+				           	 border-radius:5px;  float:left; left:10px;
+				        	border-color: darkturquoise; border-radius:200px;">
+				        	<f:param  name="gs1"  value="#{row.ids}"  ></f:param>
+				        	</p:graphicImage>
+				        	
+				        	
+				        	  <f:param  name="bs3"    value="#{row.gnames}"   />
+                       
+				        	<f:param  name="bs2"  value="#{row.ids}"  />
+				</h:commandLink>
+			    	
+			       
+                   <h:inputHidden value="#{row.ids}"  />
+                    <h:inputHidden value="#{row.indiviual_uniqe_group_id}"  />
+		           
+                             
+                       <div  style="background-color: silver; width: 80px; 
+                       height: 100px; text-align: center; border-radius: 20px ; float: right;
+                        margin-top: 15px; margin-right: 5px;">
+                         <h:outputLabel value="#{row.gnames}"    style="color: #FFF" />
+                         
+                         <br></br> <br></br>
+                          <h:outputLabel value="MB@ #{row.member_count}"    style="color: #FFF" />
+                        
+                          
+                           </div>
+                       <h:outputLabel value="#{row.mail}"  style="position:relative;  color: #FFF ; width:20%; size: 10px;  right:-25px;"  />
+                        
+                       <hr style="position:relative;  color: silver; top:10px; width: 80%"></hr>
+                       
+		 
+		                </ui:repeat>
+                   
+                    </div>
+            </div>
+		</p:outputPanel>
+
+
+
+			<!-- Button Controls -->
+			   </h:form>
+			   
+			    
+			 <h:form>
+			<p:outputLabel  rendered="#{sub_controller.kit}" class="iframes"      value="#{sub_controller.ojukwu}"  
+			   style="color:#54FF00;  font-size:20px; float:right; margin-right:-230px; margin-top:53px; "  />
+			
+		
+		
+			        <!-- Creating Group -->
+			    
+				<p:commandLink    title="Group Request"    style="position: absolute; height:50px;  width:50px;   
+				float: left; margin-left:70px; margin-top:190px; ">
+				<img src="Image/tara.png"    style="position: absolute; height:50px;  width:50px;  
+				float: left; margin-left:70px; margin-top:190px; " ></img>
+			</p:commandLink>
+			
+			
+			
+			<h:commandLink    action="#{sub_controller.mining}"  title="Subscribe to minnig">
+			    <!-- mine Group -->
+				<img src="Image/tara.png"   style="position: absolute; height:30px;  width:30px;  
+				margin-left: 67px; margin-top: 105px;"></img>
+		    </h:commandLink>
+		
+			
+			
+			<h:commandLink   action="#{sub_controller.stake_activate}"     title="Stake Odd">
+			    <!--  Group  stack-->
+				<img src="Image/tara.png"   style="position: absolute; height:30px;  width:30px;  
+				margin-left: 398px; margin-top: 102px;"></img>
+			</h:commandLink>
+			
+			
+			
+			
+			<h:commandLink   title=" Multi bot" 
+			  style="position: absolute; height:30px;  width:30px;  
+				margin-left: 395px; margin-top: 195px;">
+			    <!--  multiply  bot-->
+				<img src="Image/tara.png"   style="position: absolute; height:30px;  width:30px;"></img>
+			</h:commandLink>
+			
+			
+			
+			<h:commandLink  action="#{sub_controller.umark}"  title=" Unsubscribe from minnig" 
+			  style="position: relative; height:30px;  width:30px;  float:right;
+				margin-right: -322px; margin-top: 48px;">
+			    <!--  Unsubscribe-->
+				<img src="Image/tara.png"   style="position: absolute; height:30px;  width:30px;"></img>
+			</h:commandLink>
+			
+ 			</h:form>
+
+
+
+
+
+              
+
+
+
+
+
+		
+		  <!-- Creating Group -->
+		    <h:form enctype="multipart/form-data">
+		         <div style="position:absolute; top:110px;  margin-left:120px;  width: 250px; height: 140px; ">
+		        
+		                <h:inputText    value="#{sub_controller.gname}"  
+		           style="position:relative;margin-top:185px;  border-radius:2px; border:none; background-color:#A2A1A1; 
+		          float:left; color:#FFF; width:105px; height:20px; margin-left:-25px; ">
+		          <f:passThroughAttribute name="placeholder" value="Group Name"  />
+		          </h:inputText>
+		          
+		          
+		          <p:fileUpload  mode="simple"  value="#{sub_controller.uploaded}"  
+		           style="position:relative; margin-top:185px;  border-radius:2px; border:none; background-color:#A2A1A1; 
+		          float:left; color:#FFF; width:145px; height:20px; margin-left:25px; "/>
+		          
+		         <h:outputLabel   value="#{sub_controller.fill_all}"   
+		          style="position:absolute; float:right; color:#0EF752; right:5px; margin-top:10px; width:220px;"/>
+		         
+		         
+		         <!-- Creating Group -->
+		         <h:commandLink   action="#{sub_controller.creating_group}"  title="Create Group" >
+		           <img   src="Image/tara.png"  style="position:absolute;  float:right; color:#0EF752 ; margin-top:165px; width: 35px; height: 35px; right: -55px; "/>
+		           </h:commandLink>
+		         
+		          </div>
+		         
+		          <p:graphicImage     rendered="#{sub_controller.saz}"  value="#{sub_controller.current_group_involved}"  cache="false" 
+		           style=" position:relative;  width: 100px; height: 100px;  margin-top:140px; margin-left:196px;  border-radius:200px;" />
+		         </h:form>
+		         
+		         
+		         
+		          <!-- Group Members -->
+		           <h:form>
+		            <ui:repeat var="" value="">
+		         
+		         
+		       
+		       
+			         </ui:repeat>
+			         </h:form>
+			         
+		      
+		      
+		      
+		      
+		         <!-- List of Group -->
+		         <h:form>
+		            <ui:repeat var="" value="">
+		         
+		         
+		       
+		       
+			         </ui:repeat>
+			         </h:form>
+		         
+		         
+		         
+		                     <!-- Stake Socket  -->      
+				             <h:form rendered="#{sub_controller.kit1}">
+				              <h:inputText  value="#{sub_controller.stake}"  
+				               style="position:relative;  top:-178px; left:100px;  width:300px; background-color:#FFF ; border-radius:10px;">
+				               <f:passThroughAttribute    name="placeholder" value="                             Stake Here"      />
+				              </h:inputText>
+				            
+				            
+				            
+				              
+				            
+				             <!-- Stake Socket Send --> 
+				              <h:commandLink  action="#{sub_controller.stake_ativate_send}"  title="Stake">
+				                <img src="Image/upload_change.png"  
+				                style="position:absolute; margin-top: -185px; left: 65px; width: 30px; height: 30px;"></img>
+				              </h:commandLink>
+				              
+				               <!-- Stake Socket Send --> 
+				              <h:commandLink  action="#{sub_controller.stake_ativate_clear}"  title="Clear ">
+				                <img src="Image/broom.png"  
+				                style="position:absolute; margin-top: -183px; left: 420px; width: 30px; height: 33px;"></img>
+				              </h:commandLink>
+				               </h:form>
+				               
+			
+									 
+		                    <div    style="position:absolute; margin-left:65px; top:340px; height:170px; width:390px;  
+		                      background-color:#46738C ; border-radius:10px; ">
+		                     
+						    
+		                     </div>
+		       
+		     
+		    </h:body>
+</html>

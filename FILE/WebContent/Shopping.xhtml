@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	  xmlns:p="http://primefaces.org/ui">
+
+<f:event   type="preRenderView"    listener="#{facesContext.externalContext.response.setHeader('cache-Control','no-cache, no-store')}"/>
+    
+
+    <h:head>
+        <title></title>
+        
+        <link rel="stylesheet"  type="text/css" href="CSS/Dipcss.css"></link>
+        <meta name="viewport" content="width=device-width, intial-scale=1.0"></meta>
+        
+          <script type="text/javascript"   src="js/jquery-1.8.3.js"></script>
+        <script type="text/javascript">
+     
+       $(document).ready(function () {
+           $('.ds').click(function () {
+    		  $('.exe').width(310).height(370).fadeIn('slow').show();
+    		  $('.frame').width(20).height(30).show();
+    		  $('.frame1').width(200).height(20).fadeIn('slow').show();
+    		   $('.won').width(30).height(30).fadeIn('slow').show();
+    		  $('.ds').width(0).height(0).hide();
+    	   
+    	      });
+				
+				});
+        
+  </script>
+  
+  
+  
+    <style>
+    
+       .Receipt_box{
+       position: relative;
+       top: 140px;
+       width: 300px;
+       height: 20px;
+       float: right;
+       margin-right: -30px;
+     
+   }
+   
+    
+      .usertruck{
+       position: relative;
+       width: 280px;
+       height: 300px;
+       right:-100px;
+       float: right;
+      
+   }
+   
+  
+     .cart_selector{
+       position: relative;
+       top: 135px;
+       height: 20px;
+       width: 20px;
+       float: right;
+       margin-right: -140px;
+   }
+   
+   
+        #cart_selector{
+       position: relative;
+       top: 135px;
+       height: 20px;
+       width: 20px;
+       float: right;
+       margin-right: -120px;
+   }
+   
+   
+   
+     .plate1{
+       position: relative;
+       top: 5px;
+       float: right;
+       height: 20px;
+       width: 180px;
+       margin-right: -20px;
+       
+       
+   }
+   
+ 
+   
+   .plate2{
+       position: relative;
+       top: 15px;
+       float: right;
+       height: 20px;
+      width: 180px;
+       margin-right: -20px;
+       
+       
+   }
+   
+   
+ 
+   .plate3{
+       position: relative;
+       top: 25px;
+       float: right;
+       height: 20px;
+        width: 180px;
+       margin-right: -20px;
+       
+       
+   }
+ 
+   
+      .plate4{
+       position: relative;
+       top: 35px;
+       float: right;
+       height: 20px;
+        width: 180px;
+       margin-right: -20px;
+   }
+   
+   
+   
+   
+   .SLOTA{
+       position: relative;
+       color: #2DFF06;
+      left: -60px;
+      text-decoration: none;
+      background-color: none;
+     
+           
+   }
+   .SLOTA:hover{
+       background-color: rgb(63, 161, 246);
+       color: whitesmoke;
+      text-decoration: none;
+     
+       
+   }
+   
+   
+   .SLOTB{
+       position: relative;
+       color: #2DFF06;
+      left: 120px;
+      text-decoration: none;
+    
+     
+           
+   }
+   .SLOTB:hover{
+       background-color: rgb(63, 161, 246);
+       color: whitesmoke;
+      text-decoration: none;
+     
+       
+   }
+  
+   
+   .SLOTC{
+       position: relative;
+       color: #2DFF06;
+      left: 320px;
+      text-decoration: none;
+     
+     
+           
+   }
+   .SLOTC:hover{
+       background-color: rgb(63, 161, 246);
+       color: whitesmoke;
+      text-decoration: none;
+     
+       
+   }
+
+  
+  
+    .SLOTD{
+       position: relative;
+       color: #2DFF06;
+      left: 530px;
+      text-decoration: none;
+     
+     
+           
+   }
+   .SLOTD:hover{
+       background-color: rgb(63, 161, 246);
+       color: whitesmoke;
+      text-decoration: none;
+     
+       
+   }
+   
+   
+  </style>
+    </h:head>
+    <h:body style="background-color:#070530">
+         
+        <div  style=" text-align: center;">
+           
+       <div  style="position: relative;  height: 630px;  display: inline-block;
+       width: 80%;  border-radius: 10px;">
+                
+               
+      
+         <img src="Image/Rectangle 131.png" style="position: relative;
+       top: 10px; float:left;  left: -92px; width: 750px; height: 50px; "></img>                
+                     
+  <div  style=" position: relative;
+       top: 0px;
+       width: 100%;
+       height: 130px;
+       border-radius: 10px 10px 0px 0px;">
+                       
+   
+                         
+                      
+     
+                         
+        <div class="usertruck">
+                         
+                         
+                          <img  style=" position:  relative; top: -40px;
+                               width: 90%; height: 260px;  float: left;  left:20px;"   
+                                src="Image/One_house.png"></img>
+                                
+                                
+             <p:column >
+			<p:graphicImage value="#{current_GraphicImageUser.userImages}"  cache="false"   id="Sams"  
+			style=" width:110px; height: 110px; border-radius: 200px; margin-top:-40px;  border-color: whitesmoke;   border:3px solid white;">
+			</p:graphicImage>
+		    </p:column>
+                           
+                        
+                          <div class="Info">
+                          <img src="Image/NewFace/plate.png" class="plate1"></img>
+                          <img src="Image/NewFace/plate.png" class="plate2"></img>
+                          <img src="Image/NewFace/plate.png" class="plate3"></img>
+                          <img src="Image/NewFace/plate.png" class="plate4"></img>
+                          
+                          <div class="sub">
+                              <ui:repeat var="row"   value="#{current_GraphicImageUser.credentialsList}">
+                           
+      		  <h:form>
+						       <h:outputText style="border-radius: 5px; height: 10px; width: 180px;  margin-right: 22px;  
+						        font: arial, veranda, san-serif; size: 2px; color: black; position: relative;
+						       float: right;  margin-right: 22px;  top: 25px;"   value="#{row.name}"></h:outputText>
+						                       
+                        
+                        
+                        
+                         
+                              <h:outputText style="border-radius: 5px; height: 10px; width: 180px;  margin-right: 10px;
+                                font: arial, veranda, san-serif; size: 2px; color: black; position: relative;
+                                float: right;   top: 45px;"  value="#{row.email}" >
+                               </h:outputText>
+                       
+                         
+                                 
+                              <h:outputText style="border-radius: 5px; height: 10px; width: 180px;  margin-right: 52px;   
+                              font: arial, veranda, san-serif; size: 2px; color: black; position: relative;
+       						 float: right;   top: 65px;"   value="#{row.phone}"></h:outputText>
+                         
+                         
+                          
+                      
+                               <h:outputText style="border-radius: 5px; height: 10px; width: 180px;  margin-right: 32px;   
+                                font: arial, veranda, san-serif; size: 2px; color: black;  position: relative;
+       						float: right;   top: 85px;"   value="#{row.address}"></h:outputText>
+                   </h:form>
+                            
+                            </ui:repeat>    
+                              </div>
+                         </div>
+                        </div>
+                        
+                 
+                  
+                     
+                         
+                    
+                          
+                        
+                           
+                           
+                           
+                          
+                         <h:form>
+                              <h:commandLink value="SLOT 1" class="SLOTA"             action="SLOT1" target="ContentFrame"
+                                 id="SLOTA"  style="position: absolute; top: 20px;"/>
+                                
+                              <h:commandLink value="SLOT 2" class="SLOTB" action="SLOT1"    target="ContentFrame"
+                              id="SLOTB"  style="position: absolute; top: 20px;"/>
+                           
+                          
+                          
+                              <h:commandLink value="SLOT 3" class="SLOTC"   action="SLOT1"    target="ContentFrame"
+                               id="SLOTC"  style="position: absolute; top: 20px;"/>
+                                 
+                              
+                              <h:commandLink value="SLOT 4" class="SLOTD"   action="SLOT1"    target="ContentFrame"
+                               id="SLOTD" style="position: absolute; top: 20px;"/>
+                     
+                          
+                          </h:form>
+                        
+                          
+                         
+                          
+                   
+                          
+                          
+                      <!--Cart--> 
+                      
+                       
+                      <div class="Receipt_box">
+                          <h:form >
+                              <h:commandLink title=" View cart"   action="#{sOrderTaker.display()}"  target="ContentFrame">
+                                  <img src="Image/chat.png" class="cart_selector"    style="position: relative; 
+                                  float: right; margin-right: -320px; top: 195px; height: 40px; width: 100px;">      
+                                  </img>  
+                
+		                    </h:commandLink>
+		                      </h:form>
+                          
+                          
+                            <h:form>
+                              <h:commandLink >
+                                  <img src="Image/cart_home.png" class="cart_selector"    style="position: relative; 
+                                  float: right; margin-right: -320px; top: 270px; height: 40px; width: 100px;">      
+                                  </img>  
+                             </h:commandLink>
+			                    </h:form>
+                      
+                      </div>
+                    </div> 
+                     
+                     
+                <iframe    src="http://localhost:8080/FILE/SLOT1.xhtml"    style=" margin-top: -275px;   float: right;
+               margin-right: 115px; border: none" id="CON" name="ContentFrame" width="95%" height="500px"> </iframe>
+                   
+                   
+                
+                    <div  class="exe"  style="position:absolute;  top:25%;
+                         float:right;  right:-100px; width: 0px; height: 0px; 
+                          border-radius: 20px; background-color: #FFF">
+
+                           
+                   <h:form>
+                         <h:inputText   class="frame1"     value="#{message.value}"   id="io"
+                          style="width:200px; height:40px; margin-top:10px;  display:none; float:right;
+                          margin-right:10px; border-radius:10px;">
+                           </h:inputText>
+                            
+                            
+                            <p:commandLink   actionListener="#{message.leg_Over}"  update="k" >
+                            <img  class="won"  src="Image/fast_delivery.png"  
+                            style="position: relative; width: 0px; height: 0px; top:10px; right: 5px;">
+                            </img>
+                            </p:commandLink>
+                            
+                             <h:outputLabel  class="frame"     id="k"     value="me #{message.value1}" 
+                             style="position:absolute;  margin-top:50px; width:20px ; 
+                             border-radius:10px; float: right; right:70px;  ">
+                         
+                             </h:outputLabel>
+                            </h:form>
+                         </div>  
+                           <!-- Chat --> 
+                  
+                      
+                      
+                      
+                      
+                     
+                     <img  class="ds"  src="Image/cart_home.png"  title="Chat"
+                     style="position: absolute; float: right; right: -70px; top:300px; height: 40px; width: 100px;">
+                     </img>  
+                     
+                           
+                         
+                     
+          </div>
+           
+         </div>
+            
+ </h:body>
+</html>
